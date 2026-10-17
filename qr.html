@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>QR del menú</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    body { margin: 0; padding: 2rem 1rem; text-align: center; color: #1e1e1b; background: #ebe7e1; font-family: "Iowan Old Style", Palatino, Georgia, serif; }
+    .no-print { font-family: system-ui, sans-serif; }
+    input { width: 100%; max-width: 420px; padding: .7rem; font-size: 16px; border: 1px solid #cdc6bb; border-radius: 10px; }
+    .tarjeta { display: inline-block; margin: 1.5rem 0 1rem; padding: 1.5rem 1.5rem 1.2rem; background: #f6f3ef; border: 1px solid #cdc6bb; border-radius: 18px; }
+    .logo { margin: 0; color: #2f5f35; font-family: "Snell Roundhand", "Apple Chancery", cursive; font-size: 30px; letter-spacing: .08em; }
+    #qr { display: inline-block; margin: .8rem 0; padding: 12px; background: #fff; border-radius: 8px; }
+    .txt { margin: 0; font-size: 1.15rem; }
+    button { margin: .4rem; padding: .7rem 1.3rem; font-size: 1rem; border: 0; border-radius: 10px; background: #2f5f35; color: #fff; cursor: pointer; }
+    @media print { body { background: #fff; } .no-print { display: none; } .tarjeta { border-color: #999; } }
+  </style>
+</head>
+<body>
+  <div class="no-print">
+    <h1 style="font-size:1.3rem">QR del menú</h1>
+    <p>URL del menú:</p>
+    <input id="url">
+  </div>
+
+  <div class="tarjeta">
+    <p class="logo">El Bunker</p>
+    <div id="qr"></div>
+    <p class="txt">Escanea para ver el menú</p>
+  </div>
+
+  <div class="no-print">
+    <button onclick="window.print()">Imprimir</button>
+    <button id="descargar">Descargar PNG</button>
+  </div>
+
+  <script>
+    const input = document.getElementById("url");
+    const qrEl = document.getElementById("qr");
+    input.value = location.href.replace(/qr\.html.*$/, "");
+
+    const qr = new QRCode(qrEl, { width: 260, height: 260, colorDark: "#1e1e1b", correctLevel: QRCode.CorrectLevel.H });
+    const generar = () => qr.makeCode(input.value.trim() || " ");
+    input.addEventListener("input", generar);
+    generar();
+
+    document.getElementById("descargar").onclick = () => {
+      const canvas = qrEl.querySelector("canvas");
+      const a = document.createElement("a");
+      a.download = "elbunker-menu-qr.png";
+      a.href = canvas.toDataURL("image/png");
+      a.click();
+    };
+  </script>
+</body>
+</html>

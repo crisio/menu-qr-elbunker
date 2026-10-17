@@ -1,0 +1,28 @@
+{
+  "restaurante": "El Bunker",
+  "eslogan": "",
+  "moneda": "L",
+  "telefono": "",
+  "direccion": "",
+  "horario": "",
+  "instagram": "",
+  "whatsapp": "",
+  "whatsapp_globo": "¿Se te antoja algo? 😋 ¡Escríbenos y pide aquí!",
+  "whatsapp_mensaje": "¡Hola El Bunker! 👋 Vi el menú y quisiera pedir algo deli 😋",
+  "pedidos_desde": "08:00",
+  "pedidos_hasta": "19:00",
+  "categorias": [
+    {
+      "nombre": "Platos",
+      "platos": [
+        {
+          "id": "plato-de-ejemplo",
+          "nombre": "Plato de ejemplo",
+          "descripcion": "Cambia este plato desde el editor (admin.html).",
+          "precio": 100,
+          "media": []
+        }
+      ]
+    }
+  ]
+}
