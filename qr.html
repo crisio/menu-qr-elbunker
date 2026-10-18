@@ -4,19 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <title>QR del menú</title>
+  <meta name="color-scheme" content="dark">
+  <title>QR del menú · El Bunker</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <style>
-    body { margin: 0; padding: 2rem 1rem; text-align: center; color: #1e1e1b; background: #ebe7e1; font-family: "Iowan Old Style", Palatino, Georgia, serif; }
-    .no-print { font-family: system-ui, sans-serif; }
-    input { width: 100%; max-width: 420px; padding: .7rem; font-size: 16px; border: 1px solid #cdc6bb; border-radius: 10px; }
-    .tarjeta { display: inline-block; margin: 1.5rem 0 1rem; padding: 1.5rem 1.5rem 1.2rem; background: #f6f3ef; border: 1px solid #cdc6bb; border-radius: 18px; }
-    .logo { margin: 0; color: #2f5f35; font-family: "Snell Roundhand", "Apple Chancery", cursive; font-size: 30px; letter-spacing: .08em; }
-    #qr { display: inline-block; margin: .8rem 0; padding: 12px; background: #fff; border-radius: 8px; }
-    .txt { margin: 0; font-size: 1.15rem; }
-    button { margin: .4rem; padding: .7rem 1.3rem; font-size: 1rem; border: 0; border-radius: 10px; background: #2f5f35; color: #fff; cursor: pointer; }
-    @media print { body { background: #fff; } .no-print { display: none; } .tarjeta { border-color: #999; } }
+    :root { --ink: #f3ebe0; --muted: #a99b8a; --ember: #f27b2c; --coal: #1a0d05;
+      --cond: "Avenir Next Condensed", "Roboto Condensed", sans-serif-condensed, "Bahnschrift Condensed", "Arial Narrow", Arial, sans-serif; }
+    body { margin: 0; padding: 2rem 1rem; text-align: center; color: var(--ink); background: #0d0b0a; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    input { box-sizing: border-box; width: 100%; max-width: 420px; padding: .7rem; font-size: 16px; color: var(--ink); background: #15110f; border: 1px solid rgba(243,235,224,.18); border-radius: 10px; }
+    .no-print p { color: var(--muted); }
+    /* Tarjeta para las mesas */
+    .tarjeta { display: inline-block; width: 340px; margin: 1.5rem 0 1rem; padding: 26px 26px 24px; border: 1px solid rgba(242,123,44,.4); border-radius: 22px;
+      background: radial-gradient(80% 45% at 50% 108%, rgba(232,97,31,.45), transparent 75%), #15110f; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .emblema { display: block; width: 230px; height: auto; margin: 0 auto; }
+    #qr { display: inline-block; margin: 18px 0 14px; padding: 14px; background: #fff; border-radius: 14px; }
+    #qr img, #qr canvas { display: block; }
+    .txt { margin: 0; font: 700 25px/1.1 var(--cond); font-stretch: condensed; letter-spacing: .06em; text-transform: uppercase; }
+    .sub { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+    button { margin: .4rem; padding: .75rem 1.3rem; font: 700 1rem system-ui, sans-serif; border: 0; border-radius: 10px; background: var(--ember); color: var(--coal); cursor: pointer; }
+    @media print { body { padding: 0; background: #fff; } .no-print { display: none; } }
   </style>
 </head>
 <body>
@@ -27,14 +34,15 @@
   </div>
 
   <div class="tarjeta">
-    <p class="logo">El Bunker</p>
+    <img class="emblema" id="logo" src="logo.svg" alt="El Bunker · La casa de las carnes" width="340" height="270">
     <div id="qr"></div>
-    <p class="txt">Escanea para ver el menú</p>
+    <p class="txt">Escanea y mira el menú</p>
+    <p class="sub">Arma tu pedido y envíalo por WhatsApp</p>
   </div>
 
   <div class="no-print">
     <button onclick="window.print()">Imprimir</button>
-    <button id="descargar">Descargar PNG</button>
+    <button id="descargar">Descargar tarjeta (PNG)</button>
   </div>
 
   <script>
@@ -42,16 +50,37 @@
     const qrEl = document.getElementById("qr");
     input.value = location.href.replace(/qr\.html.*$/, "");
 
-    const qr = new QRCode(qrEl, { width: 260, height: 260, colorDark: "#1e1e1b", correctLevel: QRCode.CorrectLevel.H });
+    const qr = new QRCode(qrEl, { width: 240, height: 240, colorDark: "#1a1210", correctLevel: QRCode.CorrectLevel.H });
     const generar = () => qr.makeCode(input.value.trim() || " ");
     input.addEventListener("input", generar);
     generar();
 
-    document.getElementById("descargar").onclick = () => {
-      const canvas = qrEl.querySelector("canvas");
+    // Tarjeta completa en alta resolución (1080 × 1440) para imprimir o mandar a la imprenta
+    document.getElementById("descargar").onclick = async () => {
+      const W = 1080, H = 1440, c = document.createElement("canvas");
+      c.width = W; c.height = H;
+      const x = c.getContext("2d");
+      x.fillStyle = "#15110f"; x.fillRect(0, 0, W, H);
+      const g = x.createRadialGradient(W / 2, H * 1.08, 0, W / 2, H * 1.08, H * .62);
+      g.addColorStop(0, "rgba(232,97,31,.5)"); g.addColorStop(1, "rgba(232,97,31,0)");
+      x.fillStyle = g; x.fillRect(0, 0, W, H);
+      const logo = document.getElementById("logo");
+      await logo.decode().catch(() => {});
+      x.drawImage(logo, (W - 640) / 2, 80, 640, 640 * 270 / 340);
+      x.fillStyle = "#fff"; x.beginPath();
+      if (x.roundRect) x.roundRect((W - 580) / 2, 640, 580, 580, 36); else x.rect((W - 580) / 2, 640, 580, 580);
+      x.fill();
+      const grande = document.createElement("div"); // QR propio en alta resolución, no el de pantalla ampliado
+      new QRCode(grande, { text: input.value.trim() || " ", width: 520, height: 520, colorDark: "#1a1210", correctLevel: QRCode.CorrectLevel.H });
+      x.drawImage(grande.querySelector("canvas"), (W - 520) / 2, 670, 520, 520);
+      const cond = getComputedStyle(document.documentElement).getPropertyValue("--cond");
+      x.textAlign = "center"; x.fillStyle = "#f3ebe0";
+      x.font = "700 70px " + cond; x.fillText("ESCANEA Y MIRA EL MENÚ", W / 2, 1310);
+      x.fillStyle = "#a99b8a"; x.font = "400 38px system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
+      x.fillText("Arma tu pedido y envíalo por WhatsApp", W / 2, 1372);
       const a = document.createElement("a");
       a.download = "elbunker-menu-qr.png";
-      a.href = canvas.toDataURL("image/png");
+      a.href = c.toDataURL("image/png");
       a.click();
     };
   </script>

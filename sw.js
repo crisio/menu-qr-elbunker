@@ -2,7 +2,7 @@
 // Páginas y menu.json: primero internet (siempre lo más nuevo), si no hay, la copia guardada.
 // Fotos, videos e íconos: primero la copia guardada (carga instantánea).
 const CACHE = "elbunker-v1";
-const BASE = ["./", "index.html", "admin.html", "menu.json", "icon.svg", "editor.svg"];
+const BASE = ["./", "index.html", "admin.html", "menu.json", "icon.svg", "editor.svg", "logo.svg"];
 
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(BASE)).then(() => self.skipWaiting()));

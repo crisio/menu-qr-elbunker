@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#2f5f35">
+<meta name="theme-color" content="#1a1412">
 <title>Editar menú</title>
 <link rel="icon" href="editor.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="editor-180.png">
 <link rel="manifest" href="editor.webmanifest">
 <meta name="apple-mobile-web-app-title" content="El Bunker Editor">
 <style>
-:root{--bg:#f2efea;--card:#fff;--ink:#1e1e1b;--muted:#6b665f;--green:#2f5f35;--line:#ddd6cc;--red:#b42318}
+:root{--bg:#f2efea;--card:#fff;--ink:#1e1e1b;--muted:#6b665f;--marca:#b5461a;--carbon:#1a1412;--line:#ddd6cc;--red:#b42318}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
 .bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:10px;padding:10px 14px;padding-top:calc(10px + env(safe-area-inset-top));
-  background:var(--green);color:#fff}
+  background:var(--carbon);color:#fff;border-bottom:2px solid var(--marca)}
 .bar strong{flex:1;font-size:17px}
 .bar a{color:#fff;font-size:14px}
 #estado{position:sticky;top:calc(56px + env(safe-area-inset-top));z-index:9;display:none;padding:10px 14px;background:#fff7d6;font-size:14px;border-bottom:1px solid var(--line)}
@@ -27,24 +27,24 @@ h2{margin:0 0 10px;font-size:18px}
 label{display:block;margin:10px 0 4px;color:var(--muted);font-size:13px;font-weight:600}
 input[type=text],input[type=password],input[type=time],textarea,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font:inherit;font-size:16px}
 textarea{resize:vertical;min-height:72px}
-input:focus,textarea:focus,select:focus{outline:2px solid var(--green);outline-offset:-1px;border-color:transparent}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--marca);outline-offset:-1px;border-color:transparent}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
 button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:8px 14px;border:1px solid var(--line);border-radius:10px;
   background:#fff;color:var(--ink);font:inherit;font-size:15px;cursor:pointer;touch-action:manipulation;text-decoration:none}
 button:active{transform:scale(.97)}
 button:disabled{opacity:.5}
-.pri{background:var(--green);border-color:var(--green);color:#fff;font-weight:600}
+.pri{background:var(--marca);border-color:var(--marca);color:#fff;font-weight:600}
 #guardarTop{min-height:38px;padding:6px 14px;border:1px solid rgba(255,255,255,.6);background:transparent;color:#fff;font-weight:600;white-space:nowrap}
 #guardarTop.sucio{background:#f6c445;border-color:#f6c445;color:#1e1e1b;box-shadow:0 0 0 3px rgba(246,196,69,.35)}
-#guardarTop.ok{background:#fff;border-color:#fff;color:var(--green)}
+#guardarTop.ok{background:#fff;border-color:#fff;color:var(--marca)}
 #guardarTop[hidden],#instalar[hidden]{display:none}
 #instalar{min-height:38px;padding:6px 12px;border:1px solid rgba(255,255,255,.6);background:transparent;color:#fff;font-size:14px;white-space:nowrap}
 @media (max-width:480px){.bar{flex-wrap:wrap}.bar strong{flex-basis:100%}}
 .del{color:var(--red)}
 .ico{min-width:42px;padding:8px}
-.add{width:100%;margin-top:10px;border-style:dashed;color:var(--green);font-weight:600}
+.add{width:100%;margin-top:10px;border-style:dashed;color:var(--marca);font-weight:600}
 .cat-h{display:flex;gap:6px;align-items:center}
-.cat-h input{flex:1;font-weight:700;color:var(--green)}
+.cat-h input{flex:1;font-weight:700;color:var(--marca)}
 details.prod{border:1px solid var(--line);border-radius:12px;margin-top:10px;background:#fcfbf9}
 details.prod[open]{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.06)}
 summary{display:flex;align-items:center;gap:10px;padding:10px 12px;list-style:none;cursor:pointer}
@@ -58,7 +58,7 @@ details[open] summary::after{transform:rotate(90deg)}
 .pb{padding:0 12px 14px}
 .checks{display:flex;gap:18px;margin:14px 0 4px}
 .checks label{display:flex;align-items:center;gap:8px;margin:0;color:var(--ink);font-size:15px;font-weight:500}
-.checks input{width:22px;height:22px;accent-color:var(--green)}
+.checks input{width:22px;height:22px;accent-color:var(--marca)}
 .media{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin-top:6px}
 .tile{position:relative;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:#222}
 .tile img,.tile video{width:100%;height:100%;object-fit:cover;display:block}
@@ -194,7 +194,7 @@ function vistaLogin(error){
       store("set", token); cargar();
     }}, "Entrar"),
     h("details", { style: "margin-top:14px" },
-      h("summary", { style: "padding:0;color:var(--green);font-weight:600" }, "¿Cómo obtengo el token? (una sola vez)"),
+      h("summary", { style: "padding:0;color:var(--marca);font-weight:600" }, "¿Cómo obtengo el token? (una sola vez)"),
       h("ol", {},
         h("li", {}, "Abre ", h("a", { href: "https://github.com/settings/personal-access-tokens/new", target: "_blank", rel: "noopener" }, "github.com/settings/personal-access-tokens/new"), " (con tu sesión de GitHub iniciada)."),
         h("li", {}, "Token name: ", h("code", {}, "menu"), ". Expiration: la que prefieras (ej. 1 año)."),
@@ -292,13 +292,14 @@ function vistaInfo(){
   return h("details", { class: "card", open: infoAbierta || !menu.categorias.length, ontoggle: function(e){ infoAbierta = e.target.open; } },
     h("summary", { style: "padding:0" }, h("h2", { style: "margin:0;flex:1" }, "Información del restaurante")),
     campo("Nombre", menu, "restaurante"),
-    campo("Eslogan", menu, "eslogan", { ph: "Brunch & Coffee" }),
+    campo("Eslogan", menu, "eslogan", { ph: "La casa de las carnes" }),
     h("div", { class: "grid2" },
       campo("Moneda", menu, "moneda", { ph: "L" }),
       campo("Teléfono", menu, "telefono", { ph: "+504 …", inputmode: "tel" })),
     campo("Dirección", menu, "direccion"),
     campo("Horario", menu, "horario", { ph: "Lun–Dom · 7:00 – 15:00" }),
-    campo("Instagram", menu, "instagram", { ph: "@elbunker" }),
+    campo("Instagram", menu, "instagram", { ph: "@restaurantelbunker.hn" }),
+    campo("Facebook", menu, "facebook", { ph: "restaurantelbunker.hn" }),
     h("h2", { style: "margin:22px 0 0" }, "WhatsApp"),
     h("p", { class: "muted", style: "margin:4px 0 0" }, "Número donde te llegan los pedidos. Si lo dejas vacío, el menú no permite pedir."),
     campo("Número de WhatsApp (con código de país)", menu, "whatsapp", { ph: "+504 9999-9999", inputmode: "tel" }),
@@ -351,6 +352,7 @@ function vistaCategoria(cat, ci){
         cats.splice(ci, 1); marcar(); render();
       }}, "🗑")
     ),
+    campo("Nota de la categoría (opcional, se ve bajo el título)", cat, "nota", { ph: "Ej. Acompañantes: frijoles, queso, chismol…" }),
     (cat.platos || []).map(function(p, pi){ return vistaPlato(p, pi, cat, ci); }),
     h("button", { class: "add", onclick: function(){
       var p = { id: nuevoId("plato"), nombre: "Nuevo plato", descripcion: "", precio: null, media: [] };

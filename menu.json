@@ -1,27 +1,89 @@
 {
   "restaurante": "El Bunker",
-  "eslogan": "",
+  "eslogan": "La casa de las carnes",
   "moneda": "L",
-  "telefono": "",
+  "telefono": "+504 9867-5681",
   "direccion": "",
   "horario": "",
-  "instagram": "",
-  "whatsapp": "",
-  "whatsapp_globo": "¿Se te antoja algo? 😋 ¡Escríbenos y pide aquí!",
-  "whatsapp_mensaje": "¡Hola El Bunker! 👋 Vi el menú y quisiera pedir algo deli 😋",
-  "pedidos_desde": "08:00",
-  "pedidos_hasta": "19:00",
+  "instagram": "restaurantelbunker.hn",
+  "facebook": "restaurantelbunker.hn",
+  "whatsapp": "+504 9867-5681",
+  "whatsapp_globo": "¿Con hambre? 🔥 ¡Escríbenos y pide aquí!",
+  "whatsapp_mensaje": "¡Hola El Bunker! 👋 Vi el menú y quisiera pedir algo 🔥",
+  "pedidos_desde": "",
+  "pedidos_hasta": "",
   "categorias": [
     {
-      "nombre": "Platos",
+      "nombre": "Carnes",
       "platos": [
-        {
-          "id": "plato-de-ejemplo",
-          "nombre": "Plato de ejemplo",
-          "descripcion": "Cambia este plato desde el editor (admin.html).",
-          "precio": 100,
-          "media": []
-        }
+        { "id": "res", "nombre": "Res", "descripcion": "", "precio": 220, "media": [] },
+        { "id": "pollo", "nombre": "Pollo", "descripcion": "", "precio": 200, "media": [] },
+        { "id": "costilla-de-cerdo", "nombre": "Costilla de cerdo", "descripcion": "", "precio": 220, "media": [] },
+        { "id": "ovejo", "nombre": "Ovejo (cordero)", "descripcion": "", "precio": 300, "media": [] },
+        { "id": "chuleta-de-cerdo", "nombre": "Chuleta de cerdo", "descripcion": "", "precio": 200, "media": [] },
+        { "id": "chorizo", "nombre": "Chorizo", "descripcion": "", "precio": 180, "media": [] },
+        { "id": "pinchos-mixtos", "nombre": "Pinchos mixtos", "descripcion": "Res, cerdo y chorizo.", "precio": 220, "media": [] },
+        { "id": "chicharrones", "nombre": "Chicharrones", "descripcion": "", "precio": 220, "media": [] },
+        { "id": "economico", "nombre": "Económico", "descripcion": "Cerdo o pollo.", "precio": 110, "media": [] }
+      ]
+    },
+    {
+      "nombre": "Mixtos para 2",
+      "nota": "Platos mixtos para 2 personas.",
+      "platos": [
+        { "id": "mixto-pollo-chuleta", "nombre": "Pollo / Chuleta", "descripcion": "", "precio": 300, "media": [] },
+        { "id": "mixto-res-pollo-chuleta", "nombre": "Res / Pollo / Chuleta", "descripcion": "", "precio": 540, "media": [] },
+        { "id": "mixto-res-costilla", "nombre": "Res / Costilla", "descripcion": "", "precio": 350, "media": [] },
+        { "id": "mixto-res-ovejo", "nombre": "Res / Ovejo", "descripcion": "", "precio": 410, "media": [] },
+        { "id": "mixto-pollo-costilla", "nombre": "Pollo / Costilla", "descripcion": "", "precio": 330, "media": [] },
+        { "id": "mixto-pollo-ovejo", "nombre": "Pollo / Ovejo", "descripcion": "", "precio": 380, "media": [] },
+        { "id": "mixto-costilla-ovejo", "nombre": "Costilla / Ovejo", "descripcion": "", "precio": 400, "media": [] },
+        { "id": "mixto-chuleta-ovejo", "nombre": "Chuleta / Ovejo", "descripcion": "", "precio": 380, "media": [] }
+      ]
+    },
+    {
+      "nombre": "Parrilladas",
+      "nota": "Acompañantes: frijoles, queso, chismol, encurtido, tortillas, tajadas y aderezo.",
+      "platos": [
+        { "id": "parrillada-4", "nombre": "Parrillada para 4", "descripcion": "", "precio": 800, "media": [] },
+        { "id": "parrillada-6", "nombre": "Parrillada para 6", "descripcion": "", "precio": 1200, "media": [] },
+        { "id": "parrillada-8", "nombre": "Parrillada para 8", "descripcion": "", "precio": 1550, "media": [] },
+        { "id": "parrillada-10", "nombre": "Parrillada para 10", "descripcion": "", "precio": 1900, "media": [] },
+        { "id": "parrillada-12", "nombre": "Parrillada para 12", "descripcion": "", "precio": 2200, "media": [] }
+      ]
+    },
+    {
+      "nombre": "Entradas",
+      "platos": [
+        { "id": "ceviche", "nombre": "Ceviche", "descripcion": "De camarón y pescado.", "precio": 220, "media": [] },
+        { "id": "anafre", "nombre": "Anafre", "descripcion": "De frijoles fundidos.", "precio": 180, "media": [] }
+      ]
+    },
+    {
+      "nombre": "Mariscos",
+      "platos": [
+        { "id": "camarones", "nombre": "Camarones", "descripcion": "Con ensalada, papa sazonada y aderezo.", "precio": 300, "media": [] },
+        { "id": "pescado", "nombre": "Pescado", "descripcion": "Con ensalada, tajadas y aderezo.", "precio": 250, "media": [] },
+        { "id": "mar-y-tierra", "nombre": "Mar y tierra", "descripcion": "", "precio": 380, "media": [] },
+        { "id": "filete-de-pescado", "nombre": "Filete de pescado", "descripcion": "", "precio": 250, "media": [] }
+      ]
+    },
+    {
+      "nombre": "Cenas",
+      "platos": [
+        { "id": "cena-normal", "nombre": "Cena normal", "descripcion": "Con embutidos.", "precio": 110, "media": [] },
+        { "id": "cena-con-carne", "nombre": "Cena con carne", "descripcion": "Con res, cerdo o pollo.", "precio": 140, "media": [] },
+        { "id": "cafe-negro", "nombre": "Café negro", "descripcion": "", "precio": 25, "media": [] },
+        { "id": "cafe-con-leche", "nombre": "Café con leche", "descripcion": "", "precio": 30, "media": [] }
+      ]
+    },
+    {
+      "nombre": "Menú infantil",
+      "platos": [
+        { "id": "hamburguesa", "nombre": "Hamburguesa", "descripcion": "", "precio": 180, "media": [] },
+        { "id": "chicken-fingers", "nombre": "Chicken fingers", "descripcion": "", "precio": 180, "media": [] },
+        { "id": "alitas", "nombre": "Alitas", "descripcion": "En salsa BBQ o búfalo.", "precio": 180, "media": [] },
+        { "id": "nachos", "nombre": "Nachos", "descripcion": "", "precio": 180, "media": [] }
       ]
     }
   ]
