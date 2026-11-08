@@ -10,8 +10,8 @@
   "whatsapp": "+504 9867-5681",
   "whatsapp_globo": "¿Con hambre? 🔥 ¡Escríbenos y pide aquí!",
   "whatsapp_mensaje": "¡Hola El Bunker! 👋 Vi el menú y quisiera pedir algo 🔥",
-  "pedidos_desde": "00:00",
-  "pedidos_hasta": "22:00",
+  "pedidos_desde": "",
+  "pedidos_hasta": "",
   "categorias": [
     {
       "nombre": "Carnes",
